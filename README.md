@@ -1,5 +1,7 @@
 # agent-project-kit
 
+[简体中文](./README.zh-CN.md) | English
+
 `agent-project-kit` is a requirement-first workflow toolkit for AI-assisted software delivery.
 
 It keeps product requirements, design decisions, API contracts, repo task packets, delivery status, and reusable experience records in files so different coding agents can work from the same source of truth.
