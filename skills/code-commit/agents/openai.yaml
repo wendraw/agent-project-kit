@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Commit"
+  short_description: "Prepare commit and PR summary with verification notes"
+  default_prompt: "Use $code-commit to draft commit message and PR description with risks and checks."

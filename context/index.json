@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-05-01T13:43:37.901Z",
+  "entries": [
+    {
+      "id": "biz-template-rule",
+      "title": "Business Rule Template",
+      "stage": "business",
+      "domain": "general",
+      "status": "draft",
+      "owner": "platform",
+      "tags": [
+        "business",
+        "template"
+      ],
+      "path": "context/business/template-business-rule.md",
+      "source": "context/business/template-business-rule.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "adr-0001-context-repo-first",
+      "title": "ADR-0001 Context Repo First",
+      "stage": "decision",
+      "domain": "general",
+      "status": "draft",
+      "owner": "platform",
+      "tags": [
+        "adr",
+        "context",
+        "governance"
+      ],
+      "path": "context/decisions/adr-0001-context-repo-first.md",
+      "source": "context/decisions/adr-0001-context-repo-first.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-02-26T00:00:00Z"
+    },
+    {
+      "id": "pat-contract-first",
+      "title": "Pattern - Contract First Delivery",
+      "stage": "task-input",
+      "domain": "general",
+      "status": "draft",
+      "owner": "platform",
+      "tags": [
+        "api",
+        "frontend",
+        "backend",
+        "contract"
+      ],
+      "path": "context/patterns/pattern-contract-first.md",
+      "source": "context/patterns/pattern-contract-first.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-02-26T00:00:00Z"
+    },
+    {
+      "id": "play-agent-task-input",
+      "title": "Playbook - Agent Task Input Preparation",
+      "stage": "task-input",
+      "domain": "general",
+      "status": "draft",
+      "owner": "platform",
+      "tags": [
+        "agent",
+        "task-input",
+        "quality"
+      ],
+      "path": "context/playbooks/playbook-agent-task-input.md",
+      "source": "context/playbooks/playbook-agent-task-input.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-02-26T00:00:00Z"
+    },
+    {
+      "id": "rules-context-rules",
+      "title": "context rules",
+      "stage": "rules",
+      "domain": "general",
+      "status": "draft",
+      "owner": "unknown",
+      "tags": [],
+      "path": "context/rules/context-rules.md",
+      "source": "context/rules/context-rules.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-05-01T13:41:34.085Z"
+    },
+    {
+      "id": "rules-pattern-rules",
+      "title": "pattern rules",
+      "stage": "rules",
+      "domain": "general",
+      "status": "draft",
+      "owner": "unknown",
+      "tags": [],
+      "path": "context/rules/pattern-rules.md",
+      "source": "context/rules/pattern-rules.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-05-01T13:41:34.085Z"
+    },
+    {
+      "id": "rules-risk-rules",
+      "title": "risk rules",
+      "stage": "rules",
+      "domain": "general",
+      "status": "draft",
+      "owner": "unknown",
+      "tags": [],
+      "path": "context/rules/risk-rules.md",
+      "source": "context/rules/risk-rules.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-05-01T13:41:34.085Z"
+    },
+    {
+      "id": "rules-service-rules",
+      "title": "service rules",
+      "stage": "rules",
+      "domain": "general",
+      "status": "draft",
+      "owner": "unknown",
+      "tags": [],
+      "path": "context/rules/service-rules.md",
+      "source": "context/rules/service-rules.md",
+      "flow_id": "N/A",
+      "updatedAt": "2026-05-01T13:41:34.084Z"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experience Retrieve"
+  short_description: "Retrieve relevant experience from context index before phase execution"
+  default_prompt: "Use $experience-retrieve to search the context index for past experience relevant to the current requirement and phase."

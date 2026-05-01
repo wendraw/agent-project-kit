@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Change"
+  short_description: "Update design docs after requirement or scope change"
+  default_prompt: "Use $design-change to revise technical solution and keep API/UI docs consistent."

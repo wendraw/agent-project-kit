@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Case Design"
+  short_description: "Generate executable, module-grouped test-case mindmaps"
+  default_prompt: "Use $test-case-design to produce module-first executable test cases with feishu txt exports."

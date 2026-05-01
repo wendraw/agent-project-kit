@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workspace Setup"
+  short_description: "Validate repo mapping and execution workspace readiness"
+  default_prompt: "Use $workspace-setup to verify frontend/backend repo links and task-to-repo mapping."

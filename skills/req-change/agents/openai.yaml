@@ -1,0 +1,4 @@
+interface:
+  display_name: "Req Change"
+  short_description: "Apply requirement changes and sync impacted artifacts"
+  default_prompt: "Use $req-change to apply this requirement change and update all impacted docs."

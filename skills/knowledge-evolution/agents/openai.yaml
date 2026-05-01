@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Evolution"
+  short_description: "Track experience hit frequency and recommend Doc→Skill→Command upgrades"
+  default_prompt: "Use $knowledge-evolution to analyze experience retrieval frequency and identify candidates for Skill or Command upgrades."

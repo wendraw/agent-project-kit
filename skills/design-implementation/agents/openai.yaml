@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Implementation"
+  short_description: "Implement tasks based on approved design artifacts"
+  default_prompt: "Use $design-implementation to implement this task from solution and API constraints."

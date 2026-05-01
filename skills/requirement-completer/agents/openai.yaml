@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirement Completer"
+  short_description: "Run completion gates and finalize requirement state"
+  default_prompt: "Use $requirement-completer to run gate checks and move this requirement to completed."

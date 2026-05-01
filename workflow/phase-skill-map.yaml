@@ -1,0 +1,186 @@
+version: 2
+updated_at: "2026-02-28T00:00:00Z"
+
+states:
+  - draft
+  - intake-reviewed
+  - design
+  - design-reviewed
+  - implementing
+  - validating
+  - completed
+  - archived
+
+phases:
+  - key: intake
+    from_state: draft
+    to_state: draft
+    owner_agent: requirement-manager
+    primary_skills: [req-create, test-case-design, index-manager]
+    optional_skills: [experience-retrieve, context-budget]
+    context_budget: { l0: 500, l1: 1000, l2: 1500, total: 3000 }
+    required_inputs:
+      - requirements/repo-links.yml
+      - context/index.json
+    required_outputs:
+      - requirements/in-progress/<req-id>/00-intake.md
+      - requirements/in-progress/<req-id>/01-test-cases.mmd
+
+  - key: review-intake
+    from_state: draft
+    to_state: intake-reviewed
+    owner_agent: requirement-manager
+    gate_type: manual
+    review_output: .review-intake.json
+    primary_skills: []
+    optional_skills: []
+    context_budget: { l0: 200, l1: 500, l2: 500, total: 1200 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/00-intake.md
+      - requirements/in-progress/<req-id>/01-test-cases.mmd
+    required_outputs:
+      - requirements/in-progress/<req-id>/.review-intake.json
+
+  - key: design
+    from_state: intake-reviewed
+    to_state: design
+    owner_agent: design-manager
+    service_context_required: true
+    primary_skills: [design-create]
+    optional_skills: [design-change, experience-retrieve, context-budget]
+    context_budget: { l0: 500, l1: 1500, l2: 3000, total: 5000 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/00-intake.md
+      - requirements/in-progress/<req-id>/01-test-cases.mmd
+      - requirements/in-progress/<req-id>/.review-intake.json
+      - context/index.json
+      - context/business/**/*.md
+      - context/tech/services/*.md
+    required_outputs:
+      - requirements/in-progress/<req-id>/02-technical-solution.md
+      - requirements/in-progress/<req-id>/03-api-design.yaml
+      - requirements/in-progress/<req-id>/03-api-design.md
+      - requirements/in-progress/<req-id>/04-ui-handoff.md
+
+  - key: review-design
+    from_state: design
+    to_state: design-reviewed
+    owner_agent: design-manager
+    gate_type: manual
+    review_output: .review-design.json
+    primary_skills: []
+    optional_skills: []
+    context_budget: { l0: 200, l1: 500, l2: 500, total: 1200 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/02-technical-solution.md
+      - requirements/in-progress/<req-id>/03-api-design.yaml
+      - requirements/in-progress/<req-id>/03-api-design.md
+      - requirements/in-progress/<req-id>/04-ui-handoff.md
+    required_outputs:
+      - requirements/in-progress/<req-id>/.review-design.json
+
+  - key: breakdown
+    from_state: design-reviewed
+    to_state: design-reviewed
+    owner_agent: design-manager
+    primary_skills: [design-change]
+    optional_skills: [experience-retrieve, context-budget]
+    context_budget: { l0: 500, l1: 1500, l2: 2000, total: 4000 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/02-technical-solution.md
+      - requirements/in-progress/<req-id>/03-api-design.yaml
+      - requirements/in-progress/<req-id>/04-ui-handoff.md
+      - requirements/in-progress/<req-id>/.review-design.json
+      - context/index.json
+    required_outputs:
+      - requirements/in-progress/<req-id>/05-task-breakdown.yaml
+      - requirements/in-progress/<req-id>/06-task-assignment.yaml
+
+  - key: task-input-gen
+    from_state: design-reviewed
+    to_state: implementing
+    owner_agent: implementation-executor
+    primary_skills: [task-input-prepare, workspace-setup]
+    optional_skills: [experience-retrieve, context-budget]
+    context_budget: { l0: 500, l1: 1500, l2: 3000, total: 5000 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/02-technical-solution.md
+      - requirements/in-progress/<req-id>/03-api-design.yaml
+      - requirements/in-progress/<req-id>/04-ui-handoff.md
+      - requirements/in-progress/<req-id>/05-task-breakdown.yaml
+      - requirements/in-progress/<req-id>/06-task-assignment.yaml
+      - requirements/repo-links.yml
+      - context/tech/services/*.md
+    required_outputs:
+      - requirements/in-progress/<req-id>/task-input-*.md
+      - requirements/in-progress/<req-id>/sub-agent-dispatch.md
+      - requirements/in-progress/<req-id>/sub-agent-dispatch.sh
+      - requirements/in-progress/<req-id>/07-delivery.md
+
+  - key: validation
+    from_state: implementing
+    to_state: validating
+    owner_agent: implementation-executor
+    primary_skills: [code-commit]
+    optional_skills: [experience-retrieve, error-to-experience, context-budget]
+    context_budget: { l0: 500, l1: 1000, l2: 1000, total: 2500 }
+    required_inputs:
+      - requirements/in-progress/<req-id>/07-delivery.md
+      - context/index.json
+    required_gate:
+      command: "agentkit req-dev --id <req-id> --transition implementing:validating --check-only"
+    required_outputs:
+      - requirements/in-progress/<req-id>/07-delivery.md
+
+  - key: completion
+    from_state: validating
+    to_state: completed
+    owner_agent: requirement-manager
+    primary_skills: [requirement-completer, experience-index]
+    optional_skills: [experience-retrieve, error-to-experience, context-budget]
+    context_budget: { l0: 500, l1: 1000, l2: 1500, total: 3000 }
+    required_inputs:
+      - context/index.json
+    required_gate:
+      command: "agentkit req-dev --id <req-id> --transition validating:completed --check-only"
+    required_outputs:
+      - requirements/in-progress/<req-id>/08-retro.md
+      - context/records/experience/<timestamp>-*.md
+
+  - key: archive
+    from_state: completed
+    to_state: archived
+    owner_agent: experience-depositor
+    primary_skills: [requirement-archiver, index-manager, meta-maintainer]
+    optional_skills: [knowledge-evolution]
+    required_gate:
+      command: "agentkit req-dev --id <req-id> --transition completed:archived --check-only"
+
+agent_routing:
+  phase-router:
+    description: "Route intent to requirement/design/implementation/experience agents by current state, missing artifacts, and review gates."
+    route_rules:
+      - when: "state == draft and 00-intake.md missing"
+        to: requirement-manager
+        phase: intake
+      - when: "state == draft and 00-intake.md exists and 01-test-cases.mmd exists and .review-intake.json missing"
+        to: requirement-manager
+        phase: review-intake
+      - when: "state == intake-reviewed and service context missing for repos in repo-links.yml"
+        action: suggest-load-service
+      - when: "state == intake-reviewed and missing any of 02/03/04"
+        to: design-manager
+        phase: design
+      - when: "state == design and 02/03/04 exist and .review-design.json missing"
+        to: design-manager
+        phase: review-design
+      - when: "state == design-reviewed and missing any of 05/06"
+        to: design-manager
+        phase: breakdown
+      - when: "state == design-reviewed and 05/06 exist and (task-input-*.md missing or sub-agent-dispatch missing)"
+        to: implementation-executor
+        phase: task-input-gen
+      - when: "state in [implementing, validating] and tasks exist"
+        to: implementation-executor
+      - when: "state in [completed, archived]"
+        to: experience-depositor

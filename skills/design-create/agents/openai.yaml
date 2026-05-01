@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Create"
+  short_description: "Generate technical solution from intake and tests"
+  default_prompt: "Use $design-create to produce 02-technical-solution.md from intake and test cases."

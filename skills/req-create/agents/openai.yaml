@@ -1,0 +1,4 @@
+interface:
+  display_name: "Req Create"
+  short_description: "Create requirement packets from task or PRD input"
+  default_prompt: "Use $req-create to create a requirement packet from this PRD link and repo mapping."

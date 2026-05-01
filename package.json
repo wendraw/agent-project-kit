@@ -1,0 +1,29 @@
+{
+  "name": "agent-project-kit",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "agentkit": "./cli/dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p cli/tsconfig.build.json",
+    "prepare": "npm run build",
+    "init": "npm run build && node ./cli/dist/cli.js bootstrap --force",
+    "build:index": "node scripts/build-index.mjs",
+    "typecheck": "tsc --noEmit -p cli/tsconfig.json",
+    "mindmap:render": "node ./scripts/render-mindmaps.mjs",
+    "mindmap:render:dry": "node ./scripts/render-mindmaps.mjs --dry-run",
+    "mindmap:export": "npm run build && node ./cli/dist/cli.js mindmap-export --force",
+    "install:tools": "node cli/dist/cli.js install --force"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.3.2"
+  }
+}

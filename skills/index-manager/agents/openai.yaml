@@ -1,0 +1,4 @@
+interface:
+  display_name: "Index Manager"
+  short_description: "Maintain requirement and context index consistency"
+  default_prompt: "Use $index-manager to refresh and verify requirements and context indexes."

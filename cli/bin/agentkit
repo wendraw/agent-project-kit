@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+PROJECT_ROOT="$(cd -- "${SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
+if [ -f "${PROJECT_ROOT}/dist/cli.js" ]; then
+  exec node "${PROJECT_ROOT}/dist/cli.js" "$@"
+fi
+exec node "${PROJECT_ROOT}/src/cli.ts" "$@"

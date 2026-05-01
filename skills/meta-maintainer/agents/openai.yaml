@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meta Maintainer"
+  short_description: "Keep AGENTS, RFC, and skills metadata in sync"
+  default_prompt: "Use $meta-maintainer to align AGENTS, RFC docs, and skill metadata with current workflow."

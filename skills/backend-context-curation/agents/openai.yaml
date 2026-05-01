@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backend Context Curation"
+  short_description: "Deepen backend service context for design work"
+  default_prompt: "Use $backend-context-curation to inspect backend storage, legacy write chains, reusable services, and split facts between the backend service summary and indexed backend topic docs."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context Budget"
+  short_description: "Manage token budgets for context injection per phase"
+  default_prompt: "Use $context-budget to estimate and enforce token limits before dispatching context to an agent."

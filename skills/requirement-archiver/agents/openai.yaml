@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirement Archiver"
+  short_description: "Archive completed requirement with integrity checks"
+  default_prompt: "Use $requirement-archiver to archive this completed requirement after artifact checks."

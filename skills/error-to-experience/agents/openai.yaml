@@ -1,0 +1,4 @@
+interface:
+  display_name: "Error to Experience"
+  short_description: "Convert gate failures and execution errors into Risk experience records"
+  default_prompt: "Use $error-to-experience to convert this error into a Risk experience record for future immunity."

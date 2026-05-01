@@ -1,0 +1,17 @@
+workflow/cache/
+workflow/tmp/
+workflow/secrets/*.env
+!workflow/secrets/*.env.example
+.agentkit/bind.local.json
+# generated tool projections (do not edit/commit)
+.claude
+.cursor
+.agents
+.kiro
+.trae
+.windsurf
+.opencode
+.codex
+.DS_Store
+node_modules/
+dist/

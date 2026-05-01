@@ -1,0 +1,3 @@
+# Map repo keys to git URLs. Replace these examples with your own repositories.
+frontend: "https://git.example.com/acme/frontend.git"
+backend: "https://git.example.com/acme/backend.git"

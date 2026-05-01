@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experience Index"
+  short_description: "Write reusable learnings into context index records"
+  default_prompt: "Use $experience-index to extract lessons from this delivery and write indexed experience records."

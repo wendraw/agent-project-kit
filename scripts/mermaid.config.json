@@ -1,0 +1,18 @@
+{
+  "theme": "base",
+  "look": "handDrawn",
+  "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+  "mindmap": {
+    "padding": 24,
+    "maxNodeWidth": 320
+  },
+  "themeVariables": {
+    "primaryColor": "#E8F5E9",
+    "primaryTextColor": "#1B5E20",
+    "primaryBorderColor": "#43A047",
+    "lineColor": "#4E6E58",
+    "tertiaryColor": "#E3F2FD",
+    "tertiaryTextColor": "#0D47A1",
+    "fontSize": "16px"
+  }
+}
